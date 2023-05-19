@@ -1,6 +1,10 @@
 from q1 import min_max_dict
 from q2 import min_max_dict_values
 from q3 import rename_dict_key
+from q5 import multiplicar_dict
+from q6 import unpack_dict_to_two_lists
+from q7 import order_in_dict
+from q8 import add_element_to_dict
 
 # Questão 1
 
@@ -50,3 +54,65 @@ cardapio_novo = {
 }
 
 assert rename_dict_key(cardapio, 'Suco de laranja', 'Suco de uva')
+
+# Questão 5
+
+salarios = {
+    'Isaque': 400,
+    'Davi': 0,
+    'Karolayne': 9999
+}
+
+salarios_esperado = {
+    'Isaque': -400,
+    'Davi': 0,
+    'Karolayne': -9999
+}
+
+assert multiplicar_dict(salarios, -1) == salarios_esperado
+
+# Questão 6
+
+pessoas = [
+    ({'nome': 'Maria',
+    'cidade': 'Belo Horizonte'}),
+
+    ({'nome': 'Maria',
+    'cidade': 'São Paulo'}),
+
+    ({'nome': 'Pedro',
+    'cidade': 'Curitiba'})
+]
+
+assert unpack_dict_to_two_lists(pessoas) == (['Maria', 'Maria', 'Pedro'],
+                                             ['Belo Horizonte', 'São Paulo', 'Curitiba'])
+
+# Questão 7
+
+salarios = {
+    'Isaque': 400,
+    'Davi': 0,
+    'Karolayne': 99999
+}
+
+assert order_in_dict(salarios) == None
+
+salarios = {
+    'Davi': -99999,
+    'Isaque': 400,
+    'Karolayne': 99999
+}
+
+assert order_in_dict(salarios) == 'ascendente'
+
+salarios = {
+    'Karolayne': 99999,
+    'Isaque': 400,
+    'Davi': -99999
+}
+
+assert order_in_dict(salarios) == 'decrescente'
+
+# Questão 8
+
+assert add_element_to_dict({0: 10, 1: 20}, {2: 30}) == {0: 10, 1: 20, 2: 30}
